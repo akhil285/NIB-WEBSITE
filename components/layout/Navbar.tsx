@@ -44,9 +44,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0" aria-label="NIB Consulting home">
-            <div className="relative">
+          {/* Logo + Login */}
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center shrink-0" aria-label="NIB Consulting home">
               <Image
                 src={scrolled ? "/logo-dark-removebg-preview.png" : "/logo-light-removebg-preview.png"}
                 alt="NIB Consulting"
@@ -56,8 +56,19 @@ export default function Navbar() {
                 priority
                 onError={() => {}}
               />
-            </div>
-          </Link>
+            </Link>
+            <Link
+              href="/login"
+              className={cn(
+                "hidden md:inline-block text-sm font-sans px-4 py-1.5 rounded-full border transition-all duration-200",
+                scrolled
+                  ? "border-cream/40 text-cream/70 hover:border-cream hover:text-cream"
+                  : "border-forest/40 text-forest/70 hover:border-forest hover:text-forest"
+              )}
+            >
+              Login
+            </Link>
+          </div>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -112,6 +123,13 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <Link
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200"
+                >
+                  Login
+                </Link>
               </div>
               <div className="pb-8">
                 <a

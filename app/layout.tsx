@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, DM_Serif_Display } from "next/font/google";
 import Providers from "./providers";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import ShellWrapper from "@/components/layout/ShellWrapper";
 import CustomCursor from "@/components/ui/CustomCursor";
 import "./globals.css";
 
@@ -59,9 +58,9 @@ export default function RootLayout({
       <body className="antialiased">
         <Providers>
           <CustomCursor />
-          <Navbar />
-          {children}
-          <Footer />
+          <ShellWrapper>
+            {children}
+          </ShellWrapper>
         </Providers>
       </body>
     </html>
