@@ -75,6 +75,7 @@ export default function Footer() {
           <div className="flex gap-4 text-forest-muted text-xs font-sans">
             <Link href="#" className="hover:text-cream/50 transition-colors duration-200">Privacy Policy</Link>
             <Link href="#" className="hover:text-cream/50 transition-colors duration-200">Terms of Service</Link>
+            <Link href="/sms-opt-in" className="hover:text-cream/50 transition-colors duration-200">SMS Opt-In</Link>
           </div>
         </div>
       </div>
