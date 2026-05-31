@@ -9,19 +9,20 @@ export default function GoogleReviewsArticle() {
       <div className="bg-cream min-h-screen pt-32 pb-20">
         <div className="max-w-[680px] mx-auto px-6">
 
-          <Link
-            href="/blog"
-            className="inline-block text-gold text-sm font-sans mb-8 hover:text-gold-light transition-colors duration-200"
-          >
-            ← Back to Blog
-          </Link>
-
-          <span className="inline-block border border-gold text-gold text-xs font-sans uppercase tracking-wide px-3 py-1 rounded-full">
-            Reviews &amp; Reputation
-          </span>
+          <div className="flex items-center justify-between mb-8">
+            <Link
+              href="/blog"
+              className="text-gold text-sm font-sans hover:text-gold-light transition-colors duration-200"
+            >
+              ← Back to Blog
+            </Link>
+            <span className="inline-block border border-gold text-gold text-xs font-sans uppercase tracking-wide px-3 py-1 rounded-full">
+              Reviews &amp; Reputation
+            </span>
+          </div>
 
           <h1
-            className="text-4xl text-[#1a1a1a] leading-tight mt-4"
+            className="text-2xl sm:text-4xl text-[#1a1a1a] leading-tight mt-4 max-w-2xl"
             style={{ fontFamily: "var(--font-dm-serif), 'DM Serif Display', serif" }}
           >
             One Extra Star on Google Is Worth More Than Any Ad You&apos;ll Ever Run

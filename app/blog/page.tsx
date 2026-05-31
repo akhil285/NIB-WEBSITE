@@ -15,7 +15,7 @@ const nibPosts = [
     category: "Client Retention",
     title: "The Most Valuable Clients You're Ignoring Are Already in Your Database",
     excerpt: "Every appointment-based business owner says they need more clients. But when did you last reach out to the ones who already booked with you?",
-    date: "May 2026",
+    date: "March 2026",
     readTime: "5 min read",
     image: "/images/blog/blog-reactivation.jpg",
   },
@@ -24,7 +24,7 @@ const nibPosts = [
     category: "Lead Conversion",
     title: "Why the First Business to Reply Wins the Booking",
     excerpt: "Research shows responding within 5 minutes makes you 100x more likely to convert a lead than waiting 30 minutes. Most businesses respond in hours.",
-    date: "May 2026",
+    date: "April 2026",
     readTime: "5 min read",
     image: "/images/blog/blog-speed-to-lead.jpg",
   },
@@ -157,7 +157,7 @@ function BlogGrid() {
                     </span>
                     <a
                       href={post.slug}
-                      className="text-gold hover:text-gold-light text-sm font-sans transition-colors duration-200 flex items-center gap-1"
+                      className="text-gold hover:text-gold-light text-sm font-sans transition-colors duration-200 flex items-center gap-1 whitespace-nowrap"
                     >
                       Read more <ArrowRight size={13} />
                     </a>
@@ -199,7 +199,7 @@ function BlogGrid() {
                       href={post.slug}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gold hover:text-gold-light text-sm font-sans transition-colors duration-200 flex items-center gap-1"
+                      className="text-gold hover:text-gold-light text-sm font-sans transition-colors duration-200 flex items-center gap-1 whitespace-nowrap"
                     >
                       Read more <ExternalLink size={13} />
                     </a>
