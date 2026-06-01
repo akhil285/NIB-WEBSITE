@@ -30,7 +30,7 @@ export default function LoginPage() {
       return;
     }
 
-    router.push("/buddha");
+    window.location.href = "https://nib-buddha.com";
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
