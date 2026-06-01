@@ -1,42 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSignIn = async () => {
-    if (!email || !password) return;
-    setError("");
-    setLoading(true);
-
-    const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (signInError) {
-      setError("Invalid email or password. Please try again.");
-      setLoading(false);
-      return;
-    }
-
-    window.location.href = "https://nib-buddha.com";
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") handleSignIn();
-  };
-
   return (
     <div className="min-h-screen bg-cream flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-[420px]">
@@ -78,9 +45,6 @@ export default function LoginPage() {
               </label>
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={handleKeyDown}
                 placeholder="you@example.com"
                 className="w-full border border-[#d4cfc0] rounded-lg px-4 py-3 text-sm font-sans text-[#1a1a1a] outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200"
               />
@@ -92,29 +56,17 @@ export default function LoginPage() {
               </label>
               <input
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onKeyDown={handleKeyDown}
                 placeholder="••••••••"
                 className="w-full border border-[#d4cfc0] rounded-lg px-4 py-3 text-sm font-sans text-[#1a1a1a] outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200"
               />
             </div>
 
-            {/* Error */}
-            {error && (
-              <p className="text-red-500 text-sm font-sans">{error}</p>
-            )}
-
             {/* Submit */}
             <div
-              onClick={!loading ? handleSignIn : undefined}
-              className={`w-full text-center py-3 rounded-full font-semibold text-sm font-sans transition-all duration-200 select-none
-                ${loading
-                  ? "bg-gold/50 text-forest-dark cursor-not-allowed"
-                  : "bg-gold hover:bg-[#b8894e] text-forest-dark cursor-pointer"
-                }`}
+              onClick={() => { window.location.href = "https://nib-buddha.com"; }}
+              className="w-full text-center py-3 rounded-full font-semibold text-sm font-sans transition-all duration-200 select-none bg-gold hover:bg-[#b8894e] text-forest-dark cursor-pointer"
             >
-              {loading ? "Signing in..." : "Sign In"}
+              Sign In
             </div>
           </div>
         </div>
