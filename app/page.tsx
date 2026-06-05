@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import FinalCTA from "@/components/sections/FinalCTA";
 import SectionLabel from "@/components/ui/SectionLabel";
 import AnimatedHeading from "@/components/ui/AnimatedHeading";
@@ -15,8 +15,25 @@ const CALENDLY = "https://calendly.com/akhil-nib-consulting/30min";
 /* ─── HERO ───────────────────────────────────────────────────── */
 function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setIsPlaying(true); }
+    else { v.pause(); setIsPlaying(false); }
+  };
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setIsMuted(v.muted);
+  };
 
   return (
     <section
@@ -28,7 +45,7 @@ function Hero() {
 
       {/* Content grid */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-10 items-center">
 
           {/* Left — copy */}
           <div>
@@ -96,15 +113,16 @@ function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative" style={{ filter: "drop-shadow(0 0 48px rgba(150,108,54,0.22))" }}>
+            <div className="relative" style={{ filter: "drop-shadow(0 0 48px rgba(150,108,54,0.30))" }}>
               <div
                 className="relative bg-forest-dark overflow-hidden"
                 style={{
                   aspectRatio: "16/9",
-                  clipPath: "polygon(8% 0%, 100% 0%, 100% 88%, 92% 100%, 0% 100%, 0% 12%)",
+                  clipPath: "polygon(4% 0%, 100% 0%, 100% 92%, 96% 100%, 0% 100%, 0% 8%)",
                 }}
               >
                 <video
+                  ref={videoRef}
                   autoPlay
                   muted
                   loop
@@ -112,6 +130,24 @@ function Hero() {
                   className="absolute inset-0 w-full h-full object-cover"
                   src="/videos/hero-video.mp4"
                 />
+
+                {/* Custom controls */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-2 px-4 py-2 rounded-xl" style={{ background: "rgba(30,56,40,0.75)", backdropFilter: "blur(8px)" }}>
+                  <button
+                    onClick={togglePlay}
+                    className="text-cream/80 hover:text-cream transition-opacity duration-150"
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                  >
+                    {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+                  </button>
+                  <button
+                    onClick={toggleMute}
+                    className="text-cream/80 hover:text-cream transition-opacity duration-150"
+                    aria-label={isMuted ? "Unmute" : "Mute"}
+                  >
+                    {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
