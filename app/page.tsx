@@ -88,7 +88,8 @@ function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — image placeholder (desktop only) */}
+          {/* Right — hero video (desktop only) */}
+          {/* Add hero-video.mp4 to /public/videos/ folder */}
           <motion.div
             className="hidden lg:block"
             initial={{ opacity: 0, x: 32 }}
@@ -97,35 +98,20 @@ function Hero() {
           >
             <div className="relative" style={{ filter: "drop-shadow(0 0 48px rgba(150,108,54,0.22))" }}>
               <div
-                className="relative bg-forest-dark flex items-center justify-center"
+                className="relative bg-forest-dark overflow-hidden"
                 style={{
-                  aspectRatio: "4/5",
+                  aspectRatio: "16/9",
                   clipPath: "polygon(8% 0%, 100% 0%, 100% 88%, 92% 100%, 0% 100%, 0% 12%)",
                 }}
               >
-                {/* Warm radial */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: "radial-gradient(ellipse at 40% 60%, rgba(150,108,54,0.18) 0%, transparent 65%)",
-                  }}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src="/videos/hero-video.mp4"
                 />
-                {/* Dot texture */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1.2' fill='white'/%3E%3C/svg%3E")`,
-                    backgroundRepeat: "repeat",
-                    backgroundSize: "20px 20px",
-                    opacity: 0.04,
-                  }}
-                />
-                <div className="relative text-center">
-                  <div className="text-gold/30 text-xs font-sans uppercase tracking-widest mb-2">
-                    Add photo
-                  </div>
-                  <div className="text-cream/15 text-xs font-sans">/public/hero.jpg</div>
-                </div>
               </div>
             </div>
           </motion.div>
