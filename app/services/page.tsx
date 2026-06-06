@@ -80,11 +80,11 @@ function BeforeAfter() {
             style={{ borderColor: "rgba(127,29,29,0.15)" }}
           >
             {/* Without NIB image */}
-            <div className="aspect-video w-full relative">
+            <div style={{ width: "100%", height: "300px", position: "relative", overflow: "hidden" }}>
               <img
                 src="/images/services/without-nib.jpeg"
                 alt="Without NIB"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
             <div className="p-8">
@@ -113,11 +113,11 @@ function BeforeAfter() {
             style={{ background: "rgba(46,84,61,0.08)", borderColor: "rgba(150,108,54,0.25)" }}
           >
             {/* With NIB image */}
-            <div className="aspect-video w-full relative">
+            <div style={{ width: "100%", height: "300px", position: "relative", overflow: "hidden" }}>
               <img
                 src="/images/services/with-nib.jpeg"
                 alt="With NIB"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
             <div className="p-8">
