@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { X, Check, Mic } from "lucide-react";
@@ -82,12 +81,10 @@ function BeforeAfter() {
           >
             {/* Without NIB image */}
             <div className="aspect-video w-full relative">
-              <Image
+              <img
                 src="/images/services/without-nib.jpeg"
                 alt="Without NIB"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
             <div className="p-8">
@@ -117,12 +114,10 @@ function BeforeAfter() {
           >
             {/* With NIB image */}
             <div className="aspect-video w-full relative">
-              <Image
+              <img
                 src="/images/services/with-nib.jpeg"
                 alt="With NIB"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               />
             </div>
             <div className="p-8">
