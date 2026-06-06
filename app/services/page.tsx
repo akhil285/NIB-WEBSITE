@@ -80,13 +80,11 @@ function BeforeAfter() {
             style={{ borderColor: "rgba(127,29,29,0.15)" }}
           >
             {/* Without NIB image */}
-            <div style={{ width: "100%", height: "300px", position: "relative", overflow: "hidden" }}>
-              <img
-                src="/images/services/without-nib.jpeg"
-                alt="Without NIB"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
+            <img
+              src="/images/services/without-nib.jpeg"
+              alt="Without NIB"
+              style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }}
+            />
             <div className="p-8">
               <h3
                 className="text-[#1a1a1a]/50 text-2xl mb-6"
@@ -113,13 +111,11 @@ function BeforeAfter() {
             style={{ background: "rgba(46,84,61,0.08)", borderColor: "rgba(150,108,54,0.25)" }}
           >
             {/* With NIB image */}
-            <div style={{ width: "100%", height: "300px", position: "relative", overflow: "hidden" }}>
-              <img
-                src="/images/services/with-nib.jpeg"
-                alt="With NIB"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            </div>
+            <img
+              src="/images/services/with-nib.jpeg"
+              alt="With NIB"
+              style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }}
+            />
             <div className="p-8">
               <h3
                 className="text-[#1a1a1a] text-2xl mb-6"
