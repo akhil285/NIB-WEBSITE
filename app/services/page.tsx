@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { X, Check, Mic } from "lucide-react";
@@ -79,17 +80,15 @@ function BeforeAfter() {
             className="rounded-xl border bg-white overflow-hidden"
             style={{ borderColor: "rgba(127,29,29,0.15)" }}
           >
-            {/* Without NIB image placeholder */}
-            <div className="aspect-video w-full relative" style={{ background: "#1e1e1e" }}>
-              <div
-                className="absolute inset-0"
-                style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(80,80,80,0.3) 0%, transparent 70%)" }}
+            {/* Without NIB image */}
+            <div className="aspect-video w-full relative">
+              <Image
+                src="/images/services/without-nib.jpeg"
+                alt="Without NIB"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white/15 text-xs font-sans uppercase tracking-widest">
-                  /services/without.jpg
-                </span>
-              </div>
             </div>
             <div className="p-8">
               <h3
@@ -116,17 +115,15 @@ function BeforeAfter() {
             className="rounded-xl border overflow-hidden"
             style={{ background: "rgba(46,84,61,0.08)", borderColor: "rgba(150,108,54,0.25)" }}
           >
-            {/* With NIB image placeholder */}
-            <div className="aspect-video w-full relative" style={{ background: "#1e3828" }}>
-              <div
-                className="absolute inset-0"
-                style={{ background: "radial-gradient(ellipse at 40% 60%, rgba(150,108,54,0.35) 0%, transparent 65%)" }}
+            {/* With NIB image */}
+            <div className="aspect-video w-full relative">
+              <Image
+                src="/images/services/with-nib.jpeg"
+                alt="With NIB"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-cream/15 text-xs font-sans uppercase tracking-widest">
-                  /services/with.jpg
-                </span>
-              </div>
             </div>
             <div className="p-8">
               <h3
