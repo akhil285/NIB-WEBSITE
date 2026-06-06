@@ -83,7 +83,7 @@ function BeforeAfter() {
             <img
               src="/images/services/without-nib.jpeg"
               alt="Without NIB"
-              style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }}
+              style={{ width: "100%", height: "400px", objectFit: "cover", objectPosition: "center top", display: "block" }}
             />
             <div className="p-8">
               <h3
@@ -114,7 +114,7 @@ function BeforeAfter() {
             <img
               src="/images/services/with-nib.jpeg"
               alt="With NIB"
-              style={{ width: "100%", height: "300px", objectFit: "cover", display: "block" }}
+              style={{ width: "100%", height: "400px", objectFit: "cover", objectPosition: "center top", display: "block" }}
             />
             <div className="p-8">
               <h3
