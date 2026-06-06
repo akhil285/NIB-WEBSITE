@@ -57,12 +57,10 @@ export default function SmsOptInPage() {
             Once a customer opts in, they may receive SMS messages related to:
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-[#4a4a4a] font-sans text-base leading-relaxed">
-            <li>Appointment booking support and scheduling assistance</li>
-            <li>Appointment confirmations and reminders</li>
-            <li>Follow-up messages after appointments</li>
-            <li>Review requests</li>
-            <li>Promotions and special offers</li>
-            <li>Customer service and general communications</li>
+            <li>Appointment scheduling and booking support</li>
+            <li>Appointment confirmations</li>
+            <li>Appointment reminders</li>
+            <li>Customer service messages related to appointment requests</li>
           </ul>
         </section>
 
@@ -132,9 +130,10 @@ export default function SmsOptInPage() {
                 className="mt-0.5 shrink-0 w-4 h-4 accent-gold cursor-not-allowed"
               />
               <label className="text-[#4a4a4a] font-sans text-sm leading-relaxed">
-                I agree to receive SMS messages from this business about appointment
-                booking, reminders, follow-ups, promotions, and customer service. Message
-                frequency may vary. Message and data rates may apply. Reply{" "}
+                I agree to receive SMS messages from NIB-Consulting and its salon clients
+                related to appointment scheduling, appointment confirmations, appointment
+                reminders, booking support, and customer service. Message frequency may
+                vary. Message and data rates may apply. Reply{" "}
                 <strong>STOP</strong> to unsubscribe. Reply <strong>HELP</strong> for help.
               </label>
             </div>
