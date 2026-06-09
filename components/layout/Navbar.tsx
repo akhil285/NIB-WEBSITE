@@ -57,8 +57,10 @@ export default function Navbar() {
                 onError={() => {}}
               />
             </Link>
-            <Link
-              href="/login"
+            <a
+              href="https://nib-buddha.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className={cn(
                 "hidden md:inline-block text-sm font-sans px-4 py-1.5 rounded-full border transition-all duration-200",
                 scrolled
@@ -67,7 +69,7 @@ export default function Navbar() {
               )}
             >
               Login
-            </Link>
+            </a>
           </div>
 
           {/* Desktop nav */}
@@ -123,13 +125,15 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
-                <Link
-                  href="/login"
+                <a
+                  href="https://nib-buddha.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200 text-center py-4 px-8"
                 >
                   Login
-                </Link>
+                </a>
               </div>
               <div className="pb-8 mx-6">
                 <a
