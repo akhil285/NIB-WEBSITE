@@ -110,8 +110,7 @@ export default function Navbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="bg-forest-dark border-gold/10 w-full max-w-none flex flex-col"
-              style={{ width: '100%', maxWidth: '100%' }}
+              className="bg-forest-dark border-gold/10 w-[280px] sm:w-[320px] flex flex-col"
             >
               <div className="flex flex-col pt-8 flex-1">
                 {navLinks.map((link) => (
