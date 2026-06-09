@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 
 export default function CustomCursor() {
   const [mounted, setMounted] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
   const mouseX = useMotionValue(-100);
@@ -15,6 +16,7 @@ export default function CustomCursor() {
 
   useEffect(() => {
     setMounted(true);
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
 
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX);
@@ -36,8 +38,7 @@ export default function CustomCursor() {
     };
   }, [mouseX, mouseY]);
 
-  // Only show on devices with a fine pointer (desktop)
-  if (!mounted) return null;
+  if (!mounted || isTouch) return null;
 
   return (
     <>
