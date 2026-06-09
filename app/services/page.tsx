@@ -201,71 +201,6 @@ function BuddhaReveal() {
   );
 }
 
-/* ─── 8 AGENTS ────────────────────────────────────────────────── */
-const agents = [
-  { n: "01", name: "AI Receptionist",       role: "Inbound enquiry handler",       outcome: "More enquiries become booking attempts",   desc: "Every inbound message, whether SMS, email, or website chat, gets an immediate, intelligent reply. The AI understands context, answers common questions, and sends your booking link before the lead has time to look elsewhere." },
-  { n: "02", name: "Follow-Up Agent",        role: "Lead recovery",                 outcome: "Abandoned leads recovered automatically",  desc: "When a lead receives your booking link but doesn't complete a booking, the Follow-Up Agent sends a personalised sequence over the following days. It stops the moment they respond or book." },
-  { n: "03", name: "Booking Sync",           role: "Calendar and database updates", outcome: "Clean records, accurate booking status",   desc: "Every new booking is captured automatically and synced to your client database. No manual data entry, no duplicates, no gaps in your records." },
-  { n: "04", name: "No-Show Prevention",     role: "Reminder and confirmation",     outcome: "Fewer forgotten appointments",             desc: "Reminders go out at 24 hours and 2 hours before every appointment. Each reminder asks the client to confirm, giving you advance notice of any cancellations." },
-  { n: "05", name: "Reminder Reply Handler", role: "Reply classification",          outcome: "Cleaner appointment status",               desc: "When clients reply to reminders, whether confirming, requesting to reschedule, or cancelling, the system reads the intent and updates the appointment status automatically." },
-  { n: "06", name: "Review Request Agent",   role: "Post-appointment review ask",   outcome: "More Google reviews",                     desc: "After every completed appointment, a carefully timed message goes out asking the client to leave a Google review. The timing and tone are optimised for the highest conversion rate." },
-  { n: "07", name: "Reactivation Agent",     role: "Empty slot fill",               outcome: "Direct ROI from past clients",            desc: "When you have open slots, the Reactivation Agent reaches out to past clients who haven't booked recently. Personalised, timely, and non-intrusive, it fills gaps without discounting." },
-  { n: "08", name: "Upsell & Rebooking",     role: "Lifetime value growth",         outcome: "Higher revenue per client",               desc: "After each visit, the system suggests the next appointment and relevant add-on services based on the client's history. It makes rebooking effortless and grows average spend over time." },
-];
-
-function AgentDeepDive() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
-
-  return (
-    <section className="py-28 bg-cream">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <SectionLabel>Inside the System</SectionLabel>
-          <AnimatedHeading as="h2" className="text-4xl sm:text-5xl text-[#1a1a1a] mt-2">
-            Eight agents. One coordinated operation.
-          </AnimatedHeading>
-        </div>
-
-        <motion.div
-          ref={ref}
-          className="space-y-6"
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          {agents.map((a, i) => (
-            <motion.div
-              key={a.n}
-              variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
-              className="card-hover rounded-xl p-8 border border-black/8 bg-white flex flex-col md:flex-row gap-6 items-start"
-            >
-              <div
-                className="text-7xl font-bold text-gold/15 leading-none shrink-0 w-20 text-right hidden md:block select-none"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {a.n}
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
-                  <h3 className="text-[#1a1a1a] text-2xl" style={{ fontFamily: "var(--font-heading)" }}>
-                    {a.name}
-                  </h3>
-                  <span className="text-xs border border-gold/30 text-gold/80 px-3 py-1 rounded-full font-sans">
-                    {a.outcome}
-                  </span>
-                </div>
-                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3 font-sans">
-                  {a.role}
-                </p>
-                <p className="text-[#4a4a4a] text-sm leading-relaxed font-sans">{a.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 /* ─── PRICING HEADER ─────────────────────────────────────────── */
 function PricingHeader() {
   return (
@@ -291,48 +226,28 @@ function PricingHeader() {
 const plans = [
   {
     name: "Essential",
-    tag: "Get started",
-    bestFor: "Small salons that mainly need faster enquiry handling",
     features: [
-      "AI Receptionist (inbound SMS + email)",
-      "Booking link delivery and tracking",
-      "Basic follow-up sequence",
-      "Client database setup (Supabase)",
-      "Twilio SMS messaging included",
-      "Owner notifications",
-      "Standard onboarding",
+      "AI Receptionist",
+      "Booking link handling",
+      "Basic follow-up",
     ],
     featured: false,
   },
   {
     name: "Growth",
-    tag: "Most popular",
-    bestFor: "Most salons. The recommended starting point.",
     features: [
       "Everything in Essential",
-      "24h and 2h no-show reminders",
-      "Reminder reply handling",
+      "No-show reminders",
       "Review request automation",
-      "Reactivation-ready database setup",
-      "Deeper customer lifecycle tracking",
-      "Monthly performance report",
-      "Priority support",
     ],
     featured: true,
   },
   {
     name: "Campaign Growth",
-    tag: "Maximum results",
-    bestFor: "Salons that want active revenue growth, not just admin support",
     features: [
       "Everything in Growth",
       "Active reactivation campaigns",
-      "Empty slot fill campaigns",
-      "Upsell and rebooking agent",
-      "Advanced monitoring and reporting",
-      "Optional voice AI add-on (Vapi)",
-      "Custom campaign logic",
-      "Dedicated setup support",
+      "Optional voice AI add-on",
     ],
     featured: false,
   },
@@ -367,12 +282,7 @@ function PricingCards() {
                   Most Popular
                 </span>
               )}
-              <p className={cn("text-xs font-semibold uppercase tracking-widest mb-2 font-sans", plan.featured ? "text-gold" : "text-gold/70")}>
-                {plan.tag}
-              </p>
-              <h2 className={cn("text-3xl mb-2", plan.featured ? "text-cream" : "text-[#1a1a1a]")} style={{ fontFamily: "var(--font-heading)" }}>{plan.name}</h2>
-              <p className="text-gold text-xl font-semibold mb-2 font-sans">Book a call for pricing</p>
-              <p className={cn("text-sm mb-6 font-sans italic", plan.featured ? "text-cream/50" : "text-[#4a4a4a]/70")}>{plan.bestFor}</p>
+              <h2 className={cn("text-3xl mb-6", plan.featured ? "text-cream" : "text-[#1a1a1a]")} style={{ fontFamily: "var(--font-heading)" }}>{plan.name}</h2>
 
               <ul className="flex-1 space-y-3 mb-8">
                 {plan.features.map((f) => (
@@ -526,7 +436,6 @@ export default function ServicesPage() {
       <BuddhaReveal />
       <BeforeAfter />
       <ServicesHero />
-      <AgentDeepDive />
       <PricingHeader />
       <PricingCards />
       <VoiceAI />
