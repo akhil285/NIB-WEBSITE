@@ -15,7 +15,7 @@ const CALENDLY = "https://calendly.com/akhil-nib-consulting/30min";
 /* ─── HERO ────────────────────────────────────────────────────── */
 function ServicesHero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center pt-40 pb-24 bg-cream">
+    <section className="hidden md:flex min-h-screen flex-col items-center justify-center pt-40 pb-24 bg-cream">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div
           variants={staggerContainer}

@@ -113,13 +113,13 @@ export default function Navbar() {
               className="bg-forest-dark border-gold/10 w-full max-w-none flex flex-col"
               style={{ width: '100%', maxWidth: '100%' }}
             >
-              <div className="flex flex-col gap-6 pt-8 flex-1">
+              <div className="flex flex-col pt-8 flex-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200"
+                    className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200 text-center py-4 px-8"
                   >
                     {link.label}
                   </Link>
@@ -127,12 +127,12 @@ export default function Navbar() {
                 <Link
                   href="/login"
                   onClick={() => setOpen(false)}
-                  className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200"
+                  className="text-cream/75 hover:text-gold text-lg font-medium font-sans transition-colors duration-200 text-center py-4 px-8"
                 >
                   Login
                 </Link>
               </div>
-              <div className="pb-8">
+              <div className="pb-8 mx-6">
                 <a
                   href={CALENDLY}
                   target="_blank"
